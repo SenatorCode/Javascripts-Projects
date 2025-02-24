@@ -81,6 +81,12 @@
   </div>
   
   <script>
+    // Check for saved theme on page load and apply it
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark');
+    }
+
     // Request notification permission if available
     if ('Notification' in window && Notification.permission === 'default') {
       Notification.requestPermission();
@@ -288,8 +294,6 @@
     }
     
     // Event Listeners
-    
-    // Add task form submission
     document.getElementById('addTaskForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const desc = document.getElementById('taskInput').value;
@@ -299,7 +303,6 @@
       e.target.reset();
     });
     
-    // Edit task form submission
     document.getElementById('editTaskForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const newDesc = document.getElementById('editTaskInput').value;
@@ -311,22 +314,20 @@
       closeEditModal();
     });
     
-    // Cancel edit button
     document.getElementById('cancelEdit').addEventListener('click', closeEditModal);
-    
-    // Search input for live filtering
     document.getElementById('searchInput').addEventListener('input', renderTasks);
-    
-    // Sort selection change
     document.getElementById('sortSelect').addEventListener('change', renderTasks);
-    
-    // Clear buttons
     document.getElementById('clearCompleted').addEventListener('click', clearCompletedTasks);
     document.getElementById('clearAll').addEventListener('click', clearAllTasks);
     
-    // Theme toggle button
+    // Theme toggle button functionality with persistence using localStorage
     document.querySelector('.theme-toggle').addEventListener('click', () => {
       document.body.classList.toggle('dark');
+      if (document.body.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+      }
     });
     
     // Check reminders every minute
