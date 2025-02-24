@@ -312,20 +312,37 @@
     }
     
     // Event Listeners
+    
+    // Add task form submission with validation for past due dates
     document.getElementById('addTaskForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const desc = document.getElementById('taskInput').value;
       const due = document.getElementById('dueDateInput').value;
       const category = document.getElementById('categoryInput').value;
+      
+      // Validate: Prevent setting due date in the past
+      if (new Date(due).getTime() < Date.now()) {
+        showNotification('Due date cannot be in the past.');
+        return;
+      }
+      
       addTask(desc, due, category);
       e.target.reset();
     });
     
+    // Edit task form submission with validation for past due dates
     document.getElementById('editTaskForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const newDesc = document.getElementById('editTaskInput').value;
       const newDue = document.getElementById('editDueDateInput').value;
       const newCategory = document.getElementById('editCategoryInput').value;
+      
+      // Validate: Prevent setting due date in the past
+      if (new Date(newDue).getTime() < Date.now()) {
+        showNotification('Due date cannot be in the past.');
+        return;
+      }
+      
       if (editingTaskId) {
         updateTask(editingTaskId, newDesc, newDue, newCategory);
       }
