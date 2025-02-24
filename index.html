@@ -14,6 +14,15 @@
   <div class="container">
     <h1>To‑Do App</h1>
     
+    <!-- Notification Permission Info Banner -->
+    <div id="notificationInfo" class="notification-info" style="display: none;">
+      To receive task reminders, please allow notifications for this site.
+      <br />
+      (For example, in Chrome click the lock icon next to the URL and set Notifications to "Allow".)
+      <br />
+      <button id="requestPermissionBtn">Enable Notifications</button>
+    </div>
+    
     <!-- Dashboard Summary -->
     <div id="dashboard" class="dashboard">
       <span id="totalTasks">Total: 0</span>
@@ -105,7 +114,7 @@
       document.body.classList.add('dark');
     }
 
-    // Request notification permission if available
+    // Request notification permission if available (only if not already granted)
     if ('Notification' in window && Notification.permission === 'default') {
       Notification.requestPermission();
     }
@@ -311,6 +320,15 @@
       });
     }
     
+    // Check and update notification permission info banner
+    function checkNotificationPermission() {
+      if (Notification.permission !== 'granted') {
+        document.getElementById('notificationInfo').style.display = 'block';
+      } else {
+        document.getElementById('notificationInfo').style.display = 'none';
+      }
+    }
+    
     // Event Listeners
     
     // Add task form submission with validation for past due dates
@@ -365,12 +383,20 @@
       }
     });
     
+    // Notification permission button event
+    document.getElementById('requestPermissionBtn').addEventListener('click', () => {
+      Notification.requestPermission().then(permission => {
+        checkNotificationPermission();
+      });
+    });
+    
     // Check reminders every minute
     setInterval(checkReminders, 60000);
     
-    // Initial rendering and reminder check on page load
+    // Initial rendering, reminder check, and notification permission check on page load
     renderTasks();
     checkReminders();
+    checkNotificationPermission();
   </script>
 </body>
 </html>

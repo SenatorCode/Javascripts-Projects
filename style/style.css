@@ -38,6 +38,25 @@ h1 {
   margin-bottom: 20px;
 }
 
+/* Notification Info Banner */
+.notification-info {
+  background-color: #ffeb3b;
+  color: #333;
+  border: 1px solid #fdd835;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+.notification-info button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 /* Dashboard Summary */
 .dashboard {
   display: flex;
