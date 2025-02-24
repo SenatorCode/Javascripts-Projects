@@ -23,15 +23,24 @@
     
     <!-- Form for adding a new task -->
     <form id="addTaskForm" class="todo-form">
-      <input type="text" id="taskInput" placeholder="Enter task description" required />
-      <input type="datetime-local" id="dueDateInput" required />
-      <select id="categoryInput" required>
-        <option value="" disabled selected>Select Category</option>
-        <option value="Work">Work</option>
-        <option value="Personal">Personal</option>
-        <option value="Urgent">Urgent</option>
-        <option value="Others">Others</option>
-      </select>
+      <div class="form-group">
+        <label for="taskInput">Task Description</label>
+        <input type="text" id="taskInput" placeholder="Enter task description" required />
+      </div>
+      <div class="form-group">
+        <label for="dueDateInput">Due Date</label>
+        <input type="datetime-local" id="dueDateInput" required />
+      </div>
+      <div class="form-group">
+        <label for="categoryInput">Category</label>
+        <select id="categoryInput" required>
+          <option value="" disabled selected>Select Category</option>
+          <option value="Work">Work</option>
+          <option value="Personal">Personal</option>
+          <option value="Urgent">Urgent</option>
+          <option value="Others">Others</option>
+        </select>
+      </div>
       <button type="submit">Add Task</button>
     </form>
     
@@ -63,15 +72,24 @@
     <div class="modal-content">
       <h2>Edit Task</h2>
       <form id="editTaskForm">
-        <input type="text" id="editTaskInput" required />
-        <input type="datetime-local" id="editDueDateInput" required />
-        <select id="editCategoryInput" required>
-          <option value="" disabled>Select Category</option>
-          <option value="Work">Work</option>
-          <option value="Personal">Personal</option>
-          <option value="Urgent">Urgent</option>
-          <option value="Others">Others</option>
-        </select>
+        <div class="form-group">
+          <label for="editTaskInput">Task Description</label>
+          <input type="text" id="editTaskInput" required />
+        </div>
+        <div class="form-group">
+          <label for="editDueDateInput">Due Date</label>
+          <input type="datetime-local" id="editDueDateInput" required />
+        </div>
+        <div class="form-group">
+          <label for="editCategoryInput">Category</label>
+          <select id="editCategoryInput" required>
+            <option value="" disabled>Select Category</option>
+            <option value="Work">Work</option>
+            <option value="Personal">Personal</option>
+            <option value="Urgent">Urgent</option>
+            <option value="Others">Others</option>
+          </select>
+        </div>
         <div class="modal-buttons">
           <button type="submit">Save</button>
           <button type="button" id="cancelEdit">Cancel</button>

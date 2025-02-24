@@ -1,254 +1,273 @@
 /* Base Colors and Theme Variables */
 :root {
-    --bg-color: #f9f9f9;
-    --text-color: #333;
-    --accent-color: #4caf50;
-    --border-color: #ddd;
-    --modal-bg: rgba(0, 0, 0, 0.6);
-  }
-  
-  /* Dark Mode Variables */
-  body.dark {
-    --bg-color: #333;
-    --text-color: #f9f9f9;
-    --accent-color: #4caf50;
-    --border-color: #555;
-  }
-  
-  /* Global Styles */
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  /* Container */
-  .container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-  }
-  
-  /* Header */
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  /* Dashboard Summary */
-  .dashboard {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-    font-weight: bold;
-  }
-  
-  /* Form Styling */
-  .todo-form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .todo-form input[type="text"],
-  .todo-form input[type="datetime-local"],
-  .todo-form select {
-    flex: 1 1 200px;
-    padding: 10px;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-  }
-  
-  .todo-form button {
-    padding: 10px 20px;
-    background-color: var(--accent-color);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: opacity 0.3s;
-  }
-  
-  .todo-form button:hover {
-    opacity: 0.9;
-  }
-  
-  /* Options (Search & Sort) */
-  .options {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .options input,
-  .options select {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-  }
-  
-  /* Clear Buttons */
-  .clear-buttons {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .clear-buttons button {
-    padding: 10px 20px;
-    background-color: var(--accent-color);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: opacity 0.3s;
-  }
-  
-  .clear-buttons button:hover {
-    opacity: 0.9;
-  }
-  
-  /* Task List */
-  .task-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .task-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    margin-bottom: 10px;
-    background-color: #fff;
-    transition: background-color 0.3s, transform 0.2s;
-  }
-  
-  body.dark .task-item {
-    background-color: #444;
-  }
-  
-  .task-item:hover {
-    transform: scale(1.01);
-  }
-  
-  .task-item.completed .task-info {
-    text-decoration: line-through;
-    opacity: 0.6;
-  }
-  
-  /* Task Info */
-  .task-info {
-    flex: 1;
-    margin-right: 10px;
-  }
-  
-  /* Button Container within each Task */
-  .btn-container button {
-    margin-left: 5px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    color: var(--accent-color);
-    font-weight: bold;
-  }
-  
-  /* Theme Toggle Button */
-  .theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: var(--accent-color);
-    color: white;
-    border: none;
-    border-radius: 20px;
-    padding: 5px 15px;
-    cursor: pointer;
-    transition: opacity 0.3s;
-  }
-  
-  .theme-toggle:hover {
-    opacity: 0.9;
-  }
-  
-  /* Notification Toast */
-  .notification {
-    background-color: var(--accent-color);
-    color: white;
-    padding: 10px 15px;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    border-radius: 4px;
-    display: none;
-    z-index: 1000;
-  }
-  
-  /* Modal Styles */
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--modal-bg);
-  }
-  
-  .modal-content {
-    background-color: var(--bg-color);
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 4px;
-    width: 90%;
-    max-width: 500px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  }
-  
-  .modal-content h2 {
-    margin-top: 0;
-    text-align: center;
-  }
-  
-  .modal-content form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .modal-content input,
-  .modal-content select {
-    padding: 10px;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-  }
-  
-  .modal-buttons {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .modal-buttons button {
-    flex: 1;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: var(--accent-color);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: opacity 0.3s;
-  }
-  
-  .modal-buttons button:hover {
-    opacity: 0.9;
-  }
-  
+  --bg-color: #f9f9f9;
+  --text-color: #333;
+  --accent-color: #4caf50;
+  --border-color: #ddd;
+  --modal-bg: rgba(0, 0, 0, 0.6);
+}
+
+/* Dark Mode Variables */
+body.dark {
+  --bg-color: #333;
+  --text-color: #f9f9f9;
+  --accent-color: #4caf50;
+  --border-color: #555;
+}
+
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* Header */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Dashboard Summary */
+.dashboard {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Form Styling */
+.todo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.todo-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.todo-form input[type="text"],
+.todo-form input[type="datetime-local"],
+.todo-form select {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+/* Button Styling for Add Task Form */
+.todo-form button {
+  padding: 10px 20px;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.todo-form button:hover {
+  opacity: 0.9;
+}
+
+/* Options (Search & Sort) */
+.options {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.options input,
+.options select {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+/* Clear Buttons */
+.clear-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.clear-buttons button {
+  padding: 10px 20px;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.clear-buttons button:hover {
+  opacity: 0.9;
+}
+
+/* Task List */
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+body.dark .task-item {
+  background-color: #444;
+}
+
+.task-item:hover {
+  transform: scale(1.01);
+}
+
+.task-item.completed .task-info {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Task Info */
+.task-info {
+  flex: 1;
+  margin-right: 10px;
+}
+
+/* Button Container within each Task */
+.btn-container button {
+  margin-left: 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.theme-toggle:hover {
+  opacity: 0.9;
+}
+
+/* Notification Toast */
+.notification {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 10px 15px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 4px;
+  display: none;
+  z-index: 1000;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--modal-bg);
+}
+
+.modal-content {
+  background-color: var(--bg-color);
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 4px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-content .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.modal-content input,
+.modal-content select {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-buttons button {
+  flex: 1;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.modal-buttons button:hover {
+  opacity: 0.9;
+}
