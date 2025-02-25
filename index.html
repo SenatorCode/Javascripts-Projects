@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Professional To‑Do App</title>
+  <title>To‑Do App</title>
   <!-- Link to external CSS file -->
   <link rel="stylesheet" href="./style/style.css" />
 </head>
@@ -114,11 +114,8 @@
       document.body.classList.add('dark');
     }
 
-    // Request notification permission on load if default (but do not prompt user again)
-    if ('Notification' in window && Notification.permission === 'default') {
-      // Do not auto-request; we'll let the user click the banner button
-    }
-    
+    // We don't auto-request notification permission on load (let user click the button)
+
     // Global tasks array loaded from localStorage
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     let editingTaskId = null; // Holds the id of the task being edited
@@ -383,17 +380,14 @@
       }
     });
     
-    // Notification permission button event
-    document.getElementById('requestPermissionBtn').addEventListener('click', function() {
-      if (Notification.requestPermission) {
-        Notification.requestPermission().then(function(permission) {
-          checkNotificationPermission();
-        });
-      } else {
-        // Fallback for older browsers
-        Notification.requestPermission(function(permission) {
-          checkNotificationPermission();
-        });
+    // Updated Notification permission button event using async/await
+    document.getElementById('requestPermissionBtn').addEventListener('click', async function() {
+      try {
+        const permission = await Notification.requestPermission();
+        console.log('Notification permission:', permission);
+        checkNotificationPermission();
+      } catch (error) {
+        console.error('Error requesting notification permission:', error);
       }
     });
     
