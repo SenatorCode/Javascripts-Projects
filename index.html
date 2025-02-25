@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>To‑Do App</title>
+  <title>Professional To‑Do App</title>
   <!-- Link to external CSS file -->
   <link rel="stylesheet" href="./style/style.css" />
 </head>
@@ -114,9 +114,9 @@
       document.body.classList.add('dark');
     }
 
-    // Request notification permission if available (only if not already granted)
+    // Request notification permission on load if default (but do not prompt user again)
     if ('Notification' in window && Notification.permission === 'default') {
-      Notification.requestPermission();
+      // Do not auto-request; we'll let the user click the banner button
     }
     
     // Global tasks array loaded from localStorage
@@ -384,10 +384,17 @@
     });
     
     // Notification permission button event
-    document.getElementById('requestPermissionBtn').addEventListener('click', () => {
-      Notification.requestPermission().then(permission => {
-        checkNotificationPermission();
-      });
+    document.getElementById('requestPermissionBtn').addEventListener('click', function() {
+      if (Notification.requestPermission) {
+        Notification.requestPermission().then(function(permission) {
+          checkNotificationPermission();
+        });
+      } else {
+        // Fallback for older browsers
+        Notification.requestPermission(function(permission) {
+          checkNotificationPermission();
+        });
+      }
     });
     
     // Check reminders every minute
