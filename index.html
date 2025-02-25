@@ -14,13 +14,11 @@
   <div class="container">
     <h1>To‑Do App</h1>
     
-    <!-- Notification Permission Info Banner -->
+    <!-- Notification Permission Info Banner (no enable button) -->
     <div id="notificationInfo" class="notification-info" style="display: none;">
-      To receive task reminders, please allow notifications for this site.
+      To receive task reminders, please enable notifications for this site.
       <br />
       (For example, in Chrome click the lock icon next to the URL and set Notifications to "Allow".)
-      <br />
-      <button id="requestPermissionBtn">Enable Notifications</button>
     </div>
     
     <!-- Dashboard Summary -->
@@ -114,7 +112,8 @@
       document.body.classList.add('dark');
     }
 
-    // We don't auto-request notification permission on load (let user click the button)
+    // We no longer auto-request notification permission;
+    // instead, we simply display a banner if permission is not granted.
 
     // Global tasks array loaded from localStorage
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -377,17 +376,6 @@
         localStorage.setItem('theme', 'dark');
       } else {
         localStorage.setItem('theme', 'light');
-      }
-    });
-    
-    // Updated Notification permission button event using async/await
-    document.getElementById('requestPermissionBtn').addEventListener('click', async function() {
-      try {
-        const permission = await Notification.requestPermission();
-        console.log('Notification permission:', permission);
-        checkNotificationPermission();
-      } catch (error) {
-        console.error('Error requesting notification permission:', error);
       }
     });
     
