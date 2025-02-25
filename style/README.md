@@ -1,45 +1,46 @@
-# Professional To‑Do App
+# To-Do App
 
 ## Overview
-
-The To‑Do App is a modern, feature-rich task management application designed to help users organize their tasks efficiently. With an intuitive interface, dynamic notifications, and a clean, responsive design, this app provides a robust solution for managing your daily to‑dos.
+The **To-Do App** is a feature-rich task management application designed to help users organize their daily tasks efficiently. The app provides an intuitive and user-friendly interface with a dark/light mode toggle, task categorization, due date reminders, and notification alerts to enhance productivity.
 
 ## Features
+- **Add Tasks**: Users can create new tasks with a title, description, and category.
+- **Due Date Selection**: Users can set deadlines for their tasks (past dates are restricted).
+- **Task Editing & Deletion**: Users can modify or remove tasks as needed.
+- **Task Completion**: Users can mark tasks as completed.
+- **Dark/Light Mode**: Users can switch between themes, and the preference is saved.
+- **Persistent Storage**: All tasks and settings are stored in `localStorage`, so data remains available after page reloads.
+- **Notifications**:
+  - The app sends reminders as deadlines approach.
+  - Users are prompted to enable notifications for real-time alerts.
+- **Mobile Responsiveness**: The layout adapts seamlessly to different screen sizes.
 
-- **Task Management:**  
-  Add, edit, complete, and delete tasks easily.
+## Installation & Usage
+This is a web-based application and requires no installation. To use the app:
+1. Open the app in your browser.
+2. Add tasks with due dates and categories.
+3. Allow notifications for reminders.
+4. Manage tasks efficiently with edit, delete, and completion features.
 
-- **Due Dates & Reminders:**  
-  Set due dates for tasks and receive on‑page toasts as well as browser notifications when tasks are due within the next hour.
+## Technologies Used
+- **HTML**: Structure of the app
+- **CSS**: Styling and responsive design
+- **JavaScript**: Functionality, local storage management, and notifications
 
-- **Task Categorization:**  
-  Assign each task a category (Work, Personal, Urgent, or Others) for better organization.
+## How to Enable Notifications
+For the app to send you reminders:
+1. Click on your browser’s settings.
+2. Navigate to **Site Settings > Notifications**.
+3. Allow notifications for this website.
 
-- **Dashboard Summary:**  
-  View a real‑time summary of total tasks, completed tasks, and pending tasks.
+## Future Improvements
+- Sync tasks across multiple devices.
+- User authentication for personalized experiences.
+- Advanced filtering and sorting options.
 
-- **Search & Sorting:**  
-  Filter tasks with a live search (by description or category) and sort them by due date (ascending/descending) or category.
+## License
+This project is open-source and available for further development and contributions.
 
-- **Editing Modal:**  
-  Edit task details (description, due date, category) via a user‑friendly modal dialog.
+---
+Enjoy using the **To-Do App** and stay organized!
 
-- **Clear Options:**  
-  Clear completed tasks or remove all tasks with a single click.
-
-- **Dark/Light Mode:**  
-  Toggle between dark and light themes for optimal viewing in any lighting condition.
-
-- **Persistence:**  
-  Tasks are stored in localStorage so your data remains even after a page reload.
-
-- **Responsive Design & Animations:**  
-  Smooth transitions and a responsive layout ensure a polished, professional user experience.
-
-## Installation
-
-1. **Clone the Repository:**
-
-   ```bash
-   git clone https://github.com/SenatorCode/Javascript-Projects.git
-   cd To-Do app
